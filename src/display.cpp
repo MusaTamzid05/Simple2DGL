@@ -6,6 +6,9 @@
 
 
 #include <iostream>
+#include "shape.h"
+
+#include "triangle.h"
 
 namespace Engine {
 
@@ -20,10 +23,16 @@ namespace Engine {
         }
 
         std::cout << "Display initialize.\n";
+        
+        shapes.push_back(new Triangle());
 
     }
 
     Display::~Display() {
+
+        for(Shape* shape : shapes)
+            delete shape;
+
         glfwTerminate();
     }
 
@@ -62,9 +71,16 @@ namespace Engine {
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+
+        for(Shape* shape : shapes)
+            shape->draw();
     }
 
     void Display::update() {
+
+        for(Shape* shape : shapes)
+            shape->update();
 
     }
 
@@ -73,6 +89,10 @@ namespace Engine {
 
         if(glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(m_window, true);
+
+
+        for(Shape* shape : shapes)
+            shape->handle_input();
     }
 
     void Display::run() {

@@ -2,11 +2,14 @@
 #define DISPLAY_H
 
 #include <string>
+#include <vector>
 
 
 struct GLFWwindow;
 
 namespace Engine {
+
+    class Shape;
 
     class Display {
 
@@ -41,6 +44,8 @@ namespace Engine {
             int height;
 
             GLFWwindow* m_window;
+
+            std::vector<Shape*> shapes;
     };
 
 };
