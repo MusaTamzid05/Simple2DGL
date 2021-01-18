@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 struct GLFWwindow;
 
@@ -46,6 +48,8 @@ namespace Engine {
             GLFWwindow* m_window;
 
             std::vector<Shape*> shapes;
+
+            glm::mat4 projection;
     };
 
 };

@@ -23,7 +23,8 @@ namespace Engine {
         }
 
         std::cout << "Display initialize.\n";
-        
+
+        projection = glm::ortho(0.0f, (float)width, (float)height, 0.0f, -1.0f, 1.0f);
         shapes.push_back(new Triangle());
 
     }
@@ -74,7 +75,7 @@ namespace Engine {
 
 
         for(Shape* shape : shapes)
-            shape->draw();
+            shape->draw(projection);
     }
 
     void Display::update() {

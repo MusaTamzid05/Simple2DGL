@@ -1,5 +1,6 @@
 #include "triangle.h"
 #include "shader.h"
+#include <glm/gtx/string_cast.hpp>
 
 namespace Engine {
 
@@ -39,10 +40,29 @@ namespace Engine {
 
     }
 
-    void Triangle::draw() {
+    void Triangle::draw(glm::mat4 projection) {
 
+        // order = scale rotate translate
+        // matrix multiplicatin works in verse order
         m_shader->use();
 
+        glm::vec2 pos = glm::vec2(10.0f , 10.0f);
+        glm::vec2 size = glm::vec2(10.0f , 10.0f);
+        float rotate = 180.0f;
+
+
+        glm::mat4 model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(pos, 0.0f));  
+
+		model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f)); 
+
+		model = glm::scale(model, glm::vec3(size, 1.0f));
+
+        m_shader->setMat4("model", model);
+        m_shader->setMat4("projection", projection);
+
+
+        std::cout << glm::to_string(model) << "\n";
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }

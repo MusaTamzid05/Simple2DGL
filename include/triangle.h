@@ -12,7 +12,7 @@ namespace Engine {
             Triangle();
             virtual ~Triangle();
 
-            void draw();
+            void draw(glm::mat4 projection);
             void update();
             void handle_input();
 
