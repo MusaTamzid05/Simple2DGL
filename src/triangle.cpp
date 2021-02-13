@@ -5,9 +5,12 @@
 namespace Engine {
 
 
-    Triangle::Triangle() {
+    Triangle::Triangle(const Vector::Vector2& position,
+                    const Vector::Vector2& size):
+                    Shape(nullptr, position, size){
         m_shader = new Shader("../shaders/triangle.vert", "../shaders/triangle.frag");
         init_mesh();
+        rotate = 180;
 
     }
 
@@ -46,9 +49,10 @@ namespace Engine {
         // matrix multiplicatin works in verse order
         m_shader->use();
 
-        glm::vec2 pos = glm::vec2(10.0f , 10.0f);
-        glm::vec2 size = glm::vec2(10.0f , 10.0f);
-        float rotate = 180.0f;
+
+
+        glm::vec2 pos = glm::vec2(position.x , position.y);
+        glm::vec2 size_  = glm::vec2(size.x , size.y);
 
 
         glm::mat4 model = glm::mat4(1.0f);
@@ -56,7 +60,7 @@ namespace Engine {
 
 		model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f)); 
 
-		model = glm::scale(model, glm::vec3(size, 1.0f));
+		model = glm::scale(model, glm::vec3(size_, 1.0f));
 
         m_shader->setMat4("model", model);
         m_shader->setMat4("projection", projection);

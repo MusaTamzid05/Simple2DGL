@@ -9,6 +9,7 @@
 #include "shape.h"
 
 #include "triangle.h"
+#include "vector.h"
 
 namespace Engine {
 
@@ -25,7 +26,7 @@ namespace Engine {
         std::cout << "Display initialize.\n";
 
         projection = glm::ortho(0.0f, (float)width, (float)height, 0.0f, -1.0f, 1.0f);
-        shapes.push_back(new Triangle());
+        shapes.push_back(new Triangle(Vector::Vector2(10.0f, 10.0f), Vector::Vector2(10.0f, 10.0f)));
 
     }
 

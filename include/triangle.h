@@ -9,7 +9,9 @@ namespace Engine {
     class Triangle : public Shape  {
 
         public:
-            Triangle();
+            Triangle(const Vector::Vector2& position,
+                    const Vector::Vector2& size);
+
             virtual ~Triangle();
 
             void draw(glm::mat4 projection);

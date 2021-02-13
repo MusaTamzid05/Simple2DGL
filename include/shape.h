@@ -23,6 +23,7 @@ namespace Engine  {
 
             Vector::Vector2 get_position() const;
             void set_position(const Vector::Vector2& position);
+            void set_rotate(float rotate) { this->rotate = rotate; }
 
 
         protected:
@@ -30,6 +31,8 @@ namespace Engine  {
             Shape(const Shape&);
             Shape &operator=(const Shape&);
             Shader* m_shader;
+
+            float rotate;
 
 
             Vector::Vector2 position;
