@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "vector.h"
+
 class Shader;
 
 namespace Engine  {
@@ -12,7 +14,7 @@ namespace Engine  {
     class Shape {
         public:
 
-            Shape(Shader* shader = nullptr); 
+            Shape(Shader* shader = nullptr, const Vector::Vector2& position = Vector::Vector2(0.0f, 0.0f), const Vector::Vector2 size = Vector::Vector2(0.0f, 0.0f)); 
             virtual ~Shape();
 
             virtual void draw(glm::mat4 projection) = 0;
@@ -25,6 +27,11 @@ namespace Engine  {
             Shape(const Shape&);
             Shape &operator=(const Shape&);
             Shader* m_shader;
+
+
+            Vector::Vector2 position;
+            Vector::Vector2 size;
+
     };
 };
 
