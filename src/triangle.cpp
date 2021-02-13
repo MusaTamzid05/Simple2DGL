@@ -66,7 +66,6 @@ namespace Engine {
         m_shader->setMat4("projection", projection);
 
 
-        std::cout << glm::to_string(model) << "\n";
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }
