@@ -17,4 +17,15 @@ namespace Engine {
         delete m_shader;
     }
 
+
+
+    Vector::Vector2 Shape::get_position() const {
+        return position;
+    }
+
+
+    void Shape::set_position(const Vector::Vector2& position) {
+        this->position = position;
+    }
+
 };

@@ -21,6 +21,9 @@ namespace Engine  {
             virtual void update() = 0;
             virtual void handle_input() = 0;
 
+            Vector::Vector2 get_position() const;
+            void set_position(const Vector::Vector2& position);
+
 
         protected:
 
