@@ -12,6 +12,7 @@ struct GLFWwindow;
 namespace Engine {
 
     class Shape;
+    class FixedDeltaTimer;
 
     class Display {
 
@@ -50,6 +51,7 @@ namespace Engine {
             std::vector<Shape*> shapes;
 
             glm::mat4 projection;
+            FixedDeltaTimer* fixed_timer;
     };
 
 };

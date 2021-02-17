@@ -10,6 +10,7 @@
 
 #include "triangle.h"
 #include "vector.h"
+#include "fixed_delta_timer.h"
 
 namespace Engine {
 
@@ -30,9 +31,14 @@ namespace Engine {
         for(unsigned int i = 0; i < 480; i += 30)
             shapes.push_back(new Triangle(Vector::Vector2(10.0f + i, 10.0f + i), Vector::Vector2(30.0f, 30.0f)));
 
+        fixed_timer = new FixedDeltaTimer();
+
     }
 
     Display::~Display() {
+
+
+        delete fixed_timer;
 
         for(Shape* shape : shapes)
             delete shape;
@@ -111,6 +117,9 @@ namespace Engine {
             handle_input();
             draw();
             update();
+
+            fixed_timer->update();
+            std::cout << "update.\n";
 
             glfwSwapBuffers(m_window);
             glfwPollEvents();
