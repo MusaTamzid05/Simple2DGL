@@ -29,6 +29,7 @@ namespace Engine {
                     int width,
                     int height);
 
+            void update(double delta_time);
 
         private:
 
@@ -40,7 +41,6 @@ namespace Engine {
 
 
             void draw();
-            void update();
             void handle_input();
 
             int width;

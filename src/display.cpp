@@ -31,7 +31,7 @@ namespace Engine {
         for(unsigned int i = 0; i < 480; i += 30)
             shapes.push_back(new Triangle(Vector::Vector2(10.0f + i, 10.0f + i), Vector::Vector2(30.0f, 30.0f)));
 
-        fixed_timer = new FixedDeltaTimer();
+        fixed_timer = new FixedDeltaTimer(this);
 
     }
 
@@ -87,7 +87,7 @@ namespace Engine {
             shape->draw(projection);
     }
 
-    void Display::update() {
+    void Display::update(double delta_time) {
 
         for(Shape* shape : shapes)
             shape->update();
@@ -115,11 +115,8 @@ namespace Engine {
 
         while(!glfwWindowShouldClose(m_window)) {
             handle_input();
-            draw();
-            update();
-
             fixed_timer->update();
-            std::cout << "update.\n";
+            draw();
 
             glfwSwapBuffers(m_window);
             glfwPollEvents();
