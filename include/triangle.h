@@ -10,7 +10,8 @@ namespace Engine {
 
         public:
             Triangle(const Vector::Vector2& position,
-                    const Vector::Vector2& size);
+                    const Vector::Vector2& size,
+                    float rotate = 180);
 
             virtual ~Triangle();
 

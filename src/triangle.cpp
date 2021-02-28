@@ -6,11 +6,11 @@ namespace Engine {
 
 
     Triangle::Triangle(const Vector::Vector2& position,
-                    const Vector::Vector2& size):
+                    const Vector::Vector2& size, float rotate):
                     Shape(nullptr, position, size){
         m_shader = new Shader("../shaders/triangle.vert", "../shaders/triangle.frag");
         init_mesh();
-        rotate = 180;
+        this->rotate = rotate;
 
     }
 
@@ -59,6 +59,7 @@ namespace Engine {
 		model = glm::translate(model, glm::vec3(pos, 0.0f));  
 
 		model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f)); 
+
 
 		model = glm::scale(model, glm::vec3(size_, 1.0f));
 

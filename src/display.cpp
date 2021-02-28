@@ -28,7 +28,7 @@ namespace Engine {
         std::cout << "Display initialize.\n";
 
         projection = glm::ortho(0.0f, (float)width, (float)height, 0.0f, -1.0f, 1.0f);
-        shapes.push_back(new Player(width / 2, height - 50));
+        shapes.push_back(new Player(width / 2, height - 20));
 
         fixed_timer = new FixedDeltaTimer(this);
 
