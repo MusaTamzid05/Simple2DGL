@@ -41,6 +41,7 @@ set(SOURCE_FILES
     src/triangle.cpp
     src/vector.cpp
     src/fixed_delta_timer.cpp
+    src/player.cpp
     )
 
 add_executable(gl_play  ${SOURCE_FILES})

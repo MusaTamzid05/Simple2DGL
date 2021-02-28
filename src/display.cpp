@@ -9,6 +9,7 @@
 #include "shape.h"
 
 #include "triangle.h"
+#include "player.h"
 #include "vector.h"
 #include "fixed_delta_timer.h"
 
@@ -27,9 +28,7 @@ namespace Engine {
         std::cout << "Display initialize.\n";
 
         projection = glm::ortho(0.0f, (float)width, (float)height, 0.0f, -1.0f, 1.0f);
-
-        for(unsigned int i = 0; i < 480; i += 30)
-            shapes.push_back(new Triangle(Vector::Vector2(10.0f + i, 10.0f + i), Vector::Vector2(30.0f, 30.0f)));
+        shapes.push_back(new Player(width / 2, height - 50));
 
         fixed_timer = new FixedDeltaTimer(this);
 
