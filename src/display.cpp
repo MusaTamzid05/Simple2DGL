@@ -10,6 +10,7 @@
 
 #include "triangle.h"
 #include "player.h"
+#include "enemy.h"
 #include "vector.h"
 #include "fixed_delta_timer.h"
 
@@ -29,6 +30,7 @@ namespace Engine {
 
         projection = glm::ortho(0.0f, (float)width, (float)height, 0.0f, -1.0f, 1.0f);
         shapes.push_back(new Player(width / 2, height - 20));
+        shapes.push_back(new Enemy(width / 2, 20));
 
         fixed_timer = new FixedDeltaTimer(this);
 

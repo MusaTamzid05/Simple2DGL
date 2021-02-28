@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "vector.h"
+#include "color.h"
 
 class Shader;
 
@@ -26,6 +27,9 @@ namespace Engine  {
             void set_rotate(float rotate) { this->rotate = rotate; }
 
 
+            void set_color(Color* color);
+            Color* get_color() const { return m_color; }
+
         protected:
 
             Shape(const Shape&);
@@ -37,6 +41,10 @@ namespace Engine  {
 
             Vector::Vector2 position;
             Vector::Vector2 size;
+
+
+            Color* m_color;
+
 
     };
 };

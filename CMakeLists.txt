@@ -42,6 +42,8 @@ set(SOURCE_FILES
     src/vector.cpp
     src/fixed_delta_timer.cpp
     src/player.cpp
+    src/enemy.cpp
+    src/color.cpp
     )
 
 add_executable(gl_play  ${SOURCE_FILES})

@@ -10,7 +10,6 @@ namespace Engine {
             const Vector::Vector2 size):m_shader(shader),
             position(position),
             size(size){
-
             }
 
     Shape::~Shape() {
@@ -26,6 +25,12 @@ namespace Engine {
 
     void Shape::set_position(const Vector::Vector2& position) {
         this->position = position;
+    }
+
+    void Shape::set_color(Color* color) {
+        m_color = color;
+        m_shader->use();
+        m_shader->setVec4("color", m_color->get_red(), m_color->get_green(), m_color->get_blue(), 1.0f);
     }
 
 };
